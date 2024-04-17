@@ -102,6 +102,31 @@ app.delete('/cv/:id', async (req, res) => {
     }
 });
 
+// Route för att uppdatera en CV-post baserat på ID
+app.put('/cv/:id', async (req, res) => {
+    const { id } = req.params;
+    const { companyname, jobtitle, location, startdate, enddate, description } = req.body;
+
+    try {
+        const updatedCv = await cv.findByIdAndUpdate(id, {
+            companyname,
+            jobtitle,
+            location,
+            startdate,
+            enddate,
+            description
+        }, { new: true, runValidators: true });
+
+        if (!updatedCv) {
+            return res.status(404).json({ message: "CV-posten hittades inte." });
+        }
+        res.json(updatedCv);
+    } catch (error) {
+        console.error('Error updating CV post:', error);
+        res.status(500).json({ message: 'Ett internt serverfel uppstod när CV-posten skulle uppdateras.', error: error.toString() });
+    }
+});
+
 // Startar servern och lyssnar på angiven port
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
