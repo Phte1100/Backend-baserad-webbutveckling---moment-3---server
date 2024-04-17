@@ -4,15 +4,6 @@ const path = require("path");
 const mongoose = require("mongoose")
 require('dotenv').config({path: './.env'});
 
-/* Skapar en MySQL-anslutning
-const connection = mysql.createConnection({
-    host: process.env.HOST,
-    user: process.env.USER_ACC,
-    password: process.env.PASSWORD,
-    database: process.env.DATABASE
-});
-*/
-
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -22,7 +13,7 @@ app.use(express.json());
 app.use(express.static("public")); // Statiska filer från 'public'-mappen
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect("mongodb://localhost:27017/moment3").then(() => {
+mongoose.connect(`mongodb+srv://philiptelberg:${process.env.PASSWORD}@cluster0.jczze4r.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`).then(() => {
     console.log("Connected to Mongodb");
 }).catch((error) => {
     console.log("Error connecting to database: " + error);
