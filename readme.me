@@ -1,0 +1,11 @@
+I detta projekt har jag skapat en server med Node.js och Express för att hantera arbetserfarenheter. Projektets mål var att skapa ett verktyg där användarna enkelt kan lägga till, visa och ta bort poster från sin digitala CV, genom att interagera med RESTful API.
+
+Användare kan lägga till sina arbetserfarenheter till databasen genom ett POST-anrop, se en lista på alla tillagda erfarenheter med ett GET-anrop, och ta bort oönskade poster med DELETE. PUT-anrop används tyvärr inte.
+
+jag använder Node.js och Express för skapa servern, vilket ger bra och flexibel grund att bygga på. För att lagra användarnas data användes MySQL som databaslösning. Säker hantering av databasuppgifter och andra känsliga inställningar sköts genom .env-filer vilket håller applikationen säker.
+
+server.js är filen där alla API-rutter för att skapa, läsa och ta bort CV-poster definieras. Jag har även lagt till en enkel hälsokontrollrutt för att snabbt kunna verifiera att servern kör som den ska.
+
+install.js används för att initialt sätta upp databasen, skapa nödvändiga tabeller och strukturer så att användardata kan lagras och hanteras effektivt.
+
+.env-filen innehåller alla miljövariabler som databasanslutningssträngar, vilket håller vår applikation säker och vår konfiguration flexibel.
