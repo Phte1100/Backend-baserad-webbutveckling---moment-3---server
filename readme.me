@@ -9,3 +9,26 @@ server.js är filen där alla API-rutter för att skapa, läsa och ta bort CV-po
 install.js används för att initialt sätta upp databasen, skapa nödvändiga tabeller och strukturer så att användardata kan lagras och hanteras effektivt.
 
 .env-filen innehåller alla miljövariabler som databasanslutningssträngar, vilket håller vår applikation säker och vår konfiguration flexibel.
+
+|Tabell-namn|Fält  |
+|--|--|
+|Tabell1  | companyname (string), jobtitle (string), location (string), startdate (date), enddate (date), description (string),  |
+
+| Metod  | Ändpunkt   | Beskrivning                                                                              |
+|--------|------------|------------------------------------------------------------------------------------------|
+| GET    | /api       | Visar ett välkomstmeddelande.                                                            |
+| GET    | /cv        | Hämtar alla CV-poster.                                                                   |
+| POST   | /cv        | Skapar en ny CV-post. Kräver att ett CV-objekt skickas med i förfrågan.                  |
+| PUT    | /cv/:id    | Uppdaterar en befintlig CV-post med angivet ID. Kräver att ett CV-objekt skickas med.    |
+| DELETE | /cv/:id    | Raderar en CV-post med angivet ID.                                                       |
+| GET    | /health    | En health check route för att verifiera att servern är uppe.                             |
+
+Länkar:
+
+till sidan
+
+https://frolicking-cocada-44f8d8.netlify.app/
+
+server
+
+https://backend-baserad-webbutveckling-moment-3.onrender.com/cv/
